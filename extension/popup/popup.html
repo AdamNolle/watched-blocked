@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Watched Blocked</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <img class="logo" src="../icons/icon-48.png" alt="" width="24" height="24" />
+      <h1>Watched Blocked</h1>
+      <label class="switch switch--lg" title="Turn on or off">
+        <input id="enabled" type="checkbox" role="switch" aria-label="Enabled" />
+        <span class="track"><span class="thumb"></span></span>
+      </label>
+    </header>
+
+    <section id="status" class="status" aria-live="polite">
+      <span id="status-count" class="status__count">–</span>
+      <span id="status-text" class="status__text"></span>
+    </section>
+
+    <main id="controls">
+      <h2 class="label">Hide on</h2>
+      <ul id="sections" class="list"></ul>
+
+      <div class="label label--row">
+        <h2 id="threshold-label">Minimum watched</h2>
+        <output id="threshold-value" for="threshold">Any</output>
+      </div>
+      <input id="threshold" class="slider" type="range" min="0" max="100" step="5" value="0" aria-labelledby="threshold-label" />
+
+      <h2 class="label">Watched videos</h2>
+      <div class="segmented" role="radiogroup" aria-label="Watched videos">
+        <label><input type="radio" name="mode" value="hide" /><span>Hide</span></label>
+        <label><input type="radio" name="mode" value="dim" /><span>Dim</span></label>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span id="shortcut"></span>
+      <span id="version"></span>
+    </footer>
+
+    <template id="section-row">
+      <li class="row">
+        <label class="row__label">
+          <span class="row__name"></span>
+          <span class="switch">
+            <input type="checkbox" role="switch" />
+            <span class="track"><span class="thumb"></span></span>
+          </span>
+        </label>
+      </li>
+    </template>
+
+    <script src="../shared/settings.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

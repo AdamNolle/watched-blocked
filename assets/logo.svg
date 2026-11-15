@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#34343a"/>
+      <stop offset="1" stop-color="#18181b"/>
+    </linearGradient>
+    <clipPath id="tile">
+      <rect x="4" y="4" width="120" height="120" rx="28"/>
+    </clipPath>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#screen)"/>
+  <g clip-path="url(#tile)">
+    <rect x="4" y="104" width="120" height="20" fill="#5a5a60"/>
+    <rect x="4" y="104" width="88" height="20" fill="#ff0000"/>
+  </g>
+  <g stroke="#ffffff" stroke-width="15" stroke-linecap="round">
+    <line x1="42" y1="31" x2="86" y2="75"/>
+    <line x1="86" y1="31" x2="42" y2="75"/>
+  </g>
+</svg>

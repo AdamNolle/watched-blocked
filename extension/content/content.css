@@ -1,0 +1,16 @@
+/* Applied to cards flagged by content.js */
+[data-wb-hidden="hide"],
+[data-wb-shelf-hidden] {
+  display: none !important;
+}
+
+[data-wb-hidden="dim"] {
+  opacity: 0.25 !important;
+  filter: grayscale(0.85);
+  transition: opacity 0.15s ease, filter 0.15s ease;
+}
+
+[data-wb-hidden="dim"]:hover {
+  opacity: 1 !important;
+  filter: none;
+}
