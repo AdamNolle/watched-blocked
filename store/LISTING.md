@@ -47,6 +47,11 @@ English
 | `promo-small.png` | Small promo tile (440×280) |
 | `promo-marquee.png` | Marquee promo tile (1400×560) |
 
+## Additional fields
+
+- **Homepage URL:** https://github.com/AdamNolle/watched-blocked
+- **Support URL:** https://github.com/AdamNolle/watched-blocked/issues
+
 ## Privacy tab
 
 **Single purpose**
@@ -61,12 +66,14 @@ Hides YouTube videos the user has already watched.
 | `scripting` | When the extension is installed or updated, it adds itself to YouTube tabs that are already open, so they don't need a reload. |
 | Host access to `https://www.youtube.com/*` | Reads YouTube pages to find watched videos and hide them. |
 
-**Remote code:** No.
+**Remote code:** No, I am not using remote code. All JavaScript ships in the package.
 
 **Data usage:** The extension does not collect or transmit any user data. Tick none of the data categories. Certify all three statements:
 - I do not sell or transfer user data to third parties, outside of the approved use cases
 - I do not use or transfer user data for purposes that are unrelated to my item's single purpose
 - I do not use or transfer user data to determine creditworthiness or for lending purposes
+
+**Privacy policy URL:** https://github.com/AdamNolle/watched-blocked/blob/main/PRIVACY.md
 
 ## Package
 

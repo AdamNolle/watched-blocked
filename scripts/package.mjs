@@ -5,6 +5,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import zlib from 'node:zlib';
 
+// Fixed timestamp (2020-01-01 00:00) so the archive has a valid date and identical sources produce an identical zip.
+const DOS_TIME = 0;
+const DOS_DATE = ((2020 - 1980) << 9) | (1 << 5) | 1;
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const src = path.join(root, 'extension');
 const { version } = JSON.parse(readFileSync(path.join(src, 'manifest.json'), 'utf8'));
@@ -30,7 +34,8 @@ for (const file of files) {
   local.writeUInt16LE(20, 4);
   local.writeUInt16LE(0, 6);
   local.writeUInt16LE(8, 8);
-  local.writeUInt32LE(0, 10);
+  local.writeUInt16LE(DOS_TIME, 10);
+  local.writeUInt16LE(DOS_DATE, 12);
   local.writeUInt32LE(crc, 14);
   local.writeUInt32LE(deflated.length, 18);
   local.writeUInt32LE(data.length, 22);
@@ -42,7 +47,8 @@ for (const file of files) {
   central.writeUInt16LE(20, 6);
   central.writeUInt16LE(0, 8);
   central.writeUInt16LE(8, 10);
-  central.writeUInt32LE(0, 12);
+  central.writeUInt16LE(DOS_TIME, 12);
+  central.writeUInt16LE(DOS_DATE, 14);
   central.writeUInt32LE(crc, 16);
   central.writeUInt32LE(deflated.length, 20);
   central.writeUInt32LE(data.length, 24);
